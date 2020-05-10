@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import LinkList from './LinkList';
 
 const drawerWidth = 240;
 
@@ -43,6 +44,7 @@ const isDesktop: boolean = useMediaQuery(theme.breakpoints.up('sm'));
               keepMounted: isDesktop ? false : true, // Better open performance on mobile.
             }}
           > 
+          <LinkList/>
           </Drawer>
       </nav>
     )

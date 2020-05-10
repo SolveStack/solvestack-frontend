@@ -1,15 +1,15 @@
-import React, { FunctionComponent, Fragment, useState, useEffect, createContext, Dispatch, SetStateAction, lazy, Suspense } from 'react';
+import React, { FunctionComponent, Fragment, useState, lazy, Suspense } from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { CreateCSSProperties, CSSProperties } from '@material-ui/core/styles/withStyles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Navbar from './Navbar';
 import Container from '@material-ui/core/Container';
-import ScrollToTop from './ScrollToTop';
+import ScrollToTop from './util/ScrollToTop';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import Home from './Home';
 
 const drawerWidth = 240;
+const Home = lazy(() => import('./pages/Home')); // The home page is lazy loaded
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -49,9 +49,6 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-
-// const Home = lazy(() => import('./Home'));
-
 interface AppData {
   isMobile: boolean;
 }
@@ -76,13 +73,13 @@ const App: FunctionComponent = () => {
       <div role="main" className={classes.main}>
         <div className={classes.toolbar} />
               <Container maxWidth='xl' disableGutters>
-              {/* <Suspense fallback={<div>Loading...</div>}> */}
+              <Suspense fallback={<div>Loading...</div>}> 
                     <Switch>
                       <Route exact path='/'>
                         <Home />
                       </Route>
                     </Switch>
-                    {/* </Suspense> */}
+                    </Suspense>
               </Container>
       </div>
       </Fragment>
