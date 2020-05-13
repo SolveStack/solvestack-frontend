@@ -82,27 +82,29 @@ export default {
                                 id: 'ETPGTijnRhgJqBire7uawa',
                                 name: 'nginx',
                                 wikipediaLink: 'https://en.wikipedia.org/wiki/Nginx',
-                                logoSource:
-                                    'https://upload.wikimedia.org/wikipedia/commons/c/c5/Nginx_logo.svg',
+                                logoSource: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Nginx_logo.svg',
                             },
                             {
                                 id: 'gyVMdQEWtk6XP5sYQoRmh3',
                                 name: 'Apache',
                                 wikipediaLink: 'https://en.wikipedia.org/wiki/Apache_HTTP_Server',
-                                logoSource: 'https://upload.wikimedia.org/wikipedia/commons/d/db/Apache_HTTP_server_logo_%282016%29.svg',
+                                logoSource:
+                                    'https://upload.wikimedia.org/wikipedia/commons/d/db/Apache_HTTP_server_logo_%282016%29.svg',
                             },
                             {
                                 id: 'fR4SiBDfW9KxFjuayXP7Ho',
                                 name: 'IIS',
                                 wikipediaLink: 'https://en.wikipedia.org/wiki/Internet_Information_Services',
-                                logoSource: 'https://d22e4d61ky6061.cloudfront.net/sites/default/files/Microsoft%20IIS_1.png',
+                                logoSource:
+                                    'https://d22e4d61ky6061.cloudfront.net/sites/default/files/Microsoft%20IIS_1.png',
                             },
                             {
                                 id: 'EXSdgJM3bZZTXudeU4RDNE',
                                 name: 'traefik',
                                 wikipediaLink: 'https://containo.us/traefik/',
-                                logoSource: 'https://raw.githubusercontent.com/containous/traefik/master/docs/content/assets/img/traefik.logo.png',
-                            }
+                                logoSource:
+                                    'https://raw.githubusercontent.com/containous/traefik/master/docs/content/assets/img/traefik.logo.png',
+                            },
                         ],
                     },
                     {
@@ -128,7 +130,7 @@ export default {
                                 name: 'MariaDB',
                                 wikipediaLink: 'https://en.wikipedia.org/wiki/MariaDB',
                                 logoSource: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/MariaDB_Logo.png',
-                            }
+                            },
                         ],
                     },
                     {
@@ -147,7 +149,7 @@ export default {
                                 name: 'Hosts File',
                                 wikipediaLink: 'https://en.wikipedia.org/wiki/Hosts_(file)',
                                 logoSource: '',
-                            }
+                            },
                         ],
                     },
                     {
