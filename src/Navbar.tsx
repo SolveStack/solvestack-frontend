@@ -15,10 +15,10 @@ const useStyles = makeStyles((theme: Theme) =>
                 width: `calc(100% - ${drawerWidth}px)`,
                 marginLeft: drawerWidth,
             },
-            background: 'linear-gradient(90deg, rgba(0,60,113,1) 0%, rgba(0,113,197,1) 50%, rgba(0,174,239,1) 100%)'
+            background: 'linear-gradient(90deg, rgba(0,60,113,1) 0%, rgba(0,113,197,1) 50%, rgba(0,174,239,1) 100%)',
         },
         appLogo: {
-            marginRight: theme.spacing(1)
+            marginRight: theme.spacing(1),
         },
         menuButton: {
             marginRight: theme.spacing(2),
@@ -27,36 +27,36 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         title: {
-            flexGrow: 1
-        }
-    })
+            flexGrow: 1,
+        },
+    }),
 );
 
 interface NavbarProps {
     handleDrawerToggle: () => void;
-};
+}
 
 const Navbar: FunctionComponent<NavbarProps> = ({ handleDrawerToggle }: NavbarProps) => {
     const classes = useStyles();
-    
+
     return (
         <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
-            <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={handleDrawerToggle}
-                className={classes.menuButton}
-            >
-                <MenuIcon />
-            </IconButton>
-            <Typography variant="h4" component='span' noWrap className={classes.title}>
-                SolveStack
-        </Typography>
-        </Toolbar>
-    </AppBar>
-    )
-}
+            <Toolbar>
+                <IconButton
+                    color="inherit"
+                    aria-label="open drawer"
+                    edge="start"
+                    onClick={handleDrawerToggle}
+                    className={classes.menuButton}
+                >
+                    <MenuIcon />
+                </IconButton>
+                <Typography variant="h4" component="span" noWrap className={classes.title}>
+                    SolveStack
+                </Typography>
+            </Toolbar>
+        </AppBar>
+    );
+};
 
 export default Navbar;
