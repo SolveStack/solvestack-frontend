@@ -77,19 +77,80 @@ export default {
                         id: 'ETPGTijnRhgJqBire7uawa',
                         name: 'Web Server',
                         wikipediaLink: 'https://en.wikipedia.org/wiki/Web_server',
-                        technologies: [],
+                        technologies: [
+                            {
+                                id: 'ETPGTijnRhgJqBire7uawa',
+                                name: 'nginx',
+                                wikipediaLink: 'https://en.wikipedia.org/wiki/Nginx',
+                                logoSource: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Nginx_logo.svg',
+                            },
+                            {
+                                id: 'gyVMdQEWtk6XP5sYQoRmh3',
+                                name: 'Apache',
+                                wikipediaLink: 'https://en.wikipedia.org/wiki/Apache_HTTP_Server',
+                                logoSource:
+                                    'https://upload.wikimedia.org/wikipedia/commons/d/db/Apache_HTTP_server_logo_%282016%29.svg',
+                            },
+                            {
+                                id: 'fR4SiBDfW9KxFjuayXP7Ho',
+                                name: 'IIS',
+                                wikipediaLink: 'https://en.wikipedia.org/wiki/Internet_Information_Services',
+                                logoSource:
+                                    'https://d22e4d61ky6061.cloudfront.net/sites/default/files/Microsoft%20IIS_1.png',
+                            },
+                            {
+                                id: 'EXSdgJM3bZZTXudeU4RDNE',
+                                name: 'traefik',
+                                wikipediaLink: 'https://containo.us/traefik/',
+                                logoSource:
+                                    'https://raw.githubusercontent.com/containous/traefik/master/docs/content/assets/img/traefik.logo.png',
+                            },
+                        ],
                     },
                     {
                         id: 'gXJjXwNq4wstJRU8H7oihw',
                         name: 'Database',
                         wikipediaLink: 'https://en.wikipedia.org/wiki/Database',
-                        technologies: [],
+                        technologies: [
+                            {
+                                id: '3xn22xfbe724X2irxSKbAr',
+                                name: 'PostgreSQL',
+                                wikipediaLink: 'https://en.wikipedia.org/wiki/PostgreSQL',
+                                logoSource:
+                                    'https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg',
+                            },
+                            {
+                                id: 'Dr6fqShqkowd2qK8K42Fv7',
+                                name: 'MongoDB',
+                                wikipediaLink: 'https://en.wikipedia.org/wiki/MongoDB',
+                                logoSource: 'https://upload.wikimedia.org/wikipedia/en/4/45/MongoDB-Logo.svg',
+                            },
+                            {
+                                id: 'iBe6EQkQub62VyfSpkZUjo',
+                                name: 'MariaDB',
+                                wikipediaLink: 'https://en.wikipedia.org/wiki/MariaDB',
+                                logoSource: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/MariaDB_Logo.png',
+                            },
+                        ],
                     },
                     {
                         id: 'KPz9NbxRTmayQWRQc8Uszx',
-                        name: 'DNS',
-                        wikipediaLink: 'https://en.wikipedia.org/wiki/Domain_name',
-                        technologies: [],
+                        name: 'Domain Name',
+                        wikipediaLink: 'https://en.wikipedia.org/wiki/Domain_Name_System',
+                        technologies: [
+                            {
+                                id: 'PtAmPjsRzEeUAp4dA5BSCM',
+                                name: 'DNS',
+                                wikipediaLink: 'https://en.wikipedia.org/wiki/Domain_Name_System',
+                                logoSource: '',
+                            },
+                            {
+                                id: 'CteYDSXaRd4tpXGTJwfaGs',
+                                name: 'Hosts File',
+                                wikipediaLink: 'https://en.wikipedia.org/wiki/Hosts_(file)',
+                                logoSource: '',
+                            },
+                        ],
                     },
                     {
                         id: 'Lk8RAqEDaN7mXTkAEmiaxV',

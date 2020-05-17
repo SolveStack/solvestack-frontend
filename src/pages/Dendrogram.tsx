@@ -8,36 +8,21 @@ import { InitialStack } from 'types/stacks';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        caseSearchPaper: {
-            padding: theme.spacing(4),
-        },
-        gridPaper: {
-            padding: theme.spacing(4),
-            minHeight: '29rem',
+        main: {
+            background: 'rgb(64, 81, 78)',
         },
     }),
 );
 
-class Dendrogram extends React.Component<{}, { stack: Stack }> {
-    //const classes = useStyles();
+const Dendrogram: FunctionComponent = () => {
+    const classes = useStyles();
+    const stack = api.stacks.get('hEowVJjYagxvhWPNw9HbU5');
 
-    constructor(props: any) {
-        super(props);
-        this.state = { stack: InitialStack };
-    }
-    componentDidMount() {
-        const loadedStack = api.stacks.get('hEowVJjYagxvhWPNw9HbU5');
-        console.log(loadedStack);
-        this.setState({ stack: loadedStack });
-    }
-
-    render() {
-        return (
-            <div>
-                <h2>{this.state.stack.name}</h2>
-            </div>
-        );
-    }
-}
+    return (
+        <div>
+            <h2>{stack.name}</h2>
+        </div>
+    );
+};
 
 export default Dendrogram;
