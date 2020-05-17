@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
 const drawerWidth = 240;
-const Dendrogram = lazy(() => import('./pages/Dendrogram')); // The home page is lazy loaded
+const Dendrogram = lazy(() => import('./pages/Dendrogram')); // The dendrogram page is lazy loaded
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -54,12 +54,25 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
+const useGridStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        caseSearchPaper: {
+            padding: theme.spacing(4),
+        },
+        gridPaper: {
+            padding: theme.spacing(4),
+            minHeight: '29rem',
+        },
+    }),
+);
+
 interface AppData {
     isMobile: boolean;
 }
 
 const App: FunctionComponent = () => {
     const classes = useStyles();
+    const gridClasses = useGridStyles();
 
     const [appData, setAppData] = useState<AppData>({ isMobile: false });
 
