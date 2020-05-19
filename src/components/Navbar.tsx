@@ -1,10 +1,12 @@
+// React
 import React, { FunctionComponent } from 'react';
+// Material-UI Styles
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+// Material-UI Components
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Typography from '@material-ui/core/Typography';
 
 const drawerWidth = 240;
 
@@ -15,6 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 width: `calc(100% - ${drawerWidth}px)`,
                 marginLeft: drawerWidth,
             },
+            background: 'linear-gradient(90deg, rgba(6,45,45,1) 0%, rgba(0,128,128,1) 50%, rgba(2,191,191,1) 100%)',
         },
         appLogo: {
             marginRight: theme.spacing(1),
