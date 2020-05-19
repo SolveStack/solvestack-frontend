@@ -1,17 +1,40 @@
-import React, { FunctionComponent, Fragment, useState, lazy, Suspense } from 'react';
+// React
+import React, {
+    FunctionComponent,
+    Fragment,
+    useState,
+    lazy,
+    Suspense,
+    createContext,
+    Dispatch,
+    SetStateAction,
+} from 'react';
+// Router
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// Material-UI Styles
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { CreateCSSProperties, CSSProperties } from '@material-ui/core/styles/withStyles';
-
+// Material-UI Elements
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Navbar from './Navbar';
 import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+// Helper Functions
 import ScrollToTop from './util/ScrollToTop';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Sidebar from './Sidebar';
+// App Components
+import Sidebar from './components/Sidebar';
+import Navbar from './components/Navbar';
+// Custom Types
+import AppData, { initialAppData } from './types/AppData';
+import CoreData, { initialCoreData } from './types/CoreData';
+
+export const CoreDataContext = createContext<[CoreData, Dispatch<SetStateAction<CoreData>>]>([
+    { ...initialCoreData },
+    (): CoreData => ({ ...initialCoreData }),
+]);
 
 const drawerWidth = 240;
-const Dendrogram = lazy(() => import('./pages/Dendrogram')); // The dendrogram page is lazy loaded
+const Home = lazy(() => import('./pages/Home')); // The home page is lazy loaded
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -54,29 +77,13 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const useGridStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        caseSearchPaper: {
-            padding: theme.spacing(4),
-        },
-        gridPaper: {
-            padding: theme.spacing(4),
-            minHeight: '29rem',
-        },
-    }),
-);
-
-interface AppData {
-    isMobile: boolean;
-}
-
 const App: FunctionComponent = () => {
     const classes = useStyles();
-    const gridClasses = useGridStyles();
 
-    const [appData, setAppData] = useState<AppData>({ isMobile: false });
+    const [appData, setAppData] = useState<AppData>({ ...initialAppData });
+    const [coreData, setCoreData] = useState<CoreData>({ ...initialCoreData });
 
-    const handleDrawerToggle = () => {
+    const handleDrawerToggle = (): void => {
         setAppData((prevValue) => ({ ...prevValue, isMobile: !prevValue.isMobile }));
     };
 
@@ -86,26 +93,31 @@ const App: FunctionComponent = () => {
             <CssBaseline />
             <Fragment>
                 <Navbar handleDrawerToggle={handleDrawerToggle} />
-                <Sidebar isMobile={appData.isMobile} handleDrawerToggle={handleDrawerToggle} />
-                <div role="main" className={classes.main}>
-                    <div className={classes.toolbar} />
-                    <Container maxWidth="xl" disableGutters>
-                        <Grid container spacing={3}>
-                            <Grid item xs={12} md={8}>
-                                <Suspense fallback={<div>Loading...</div>}>
-                                    <Switch>
-                                        <Route exact path="/">
-                                            <Dendrogram />
-                                        </Route>
-                                    </Switch>
-                                </Suspense>
+                <CoreDataContext.Provider value={[coreData, setCoreData]}>
+                    <Sidebar isMobile={appData.isMobile} handleDrawerToggle={handleDrawerToggle} />
+                    <div role="main" className={classes.main}>
+                        <div className={classes.toolbar} />
+                        <Container maxWidth="xl" disableGutters>
+                            <Grid container spacing={3}>
+                                <Grid item xs={12}>
+                                    <Suspense
+                                        fallback={
+                                            <Typography component="p" variant="body1">
+                                                {"We're making something special for you..."}
+                                            </Typography>
+                                        }
+                                    >
+                                        <Switch>
+                                            <Route exact path="/">
+                                                <Home />
+                                            </Route>
+                                        </Switch>
+                                    </Suspense>
+                                </Grid>
                             </Grid>
-                            <Grid item xs={12} md={4}>
-                                Module space
-                            </Grid>
-                        </Grid>
-                    </Container>
-                </div>
+                        </Container>
+                    </div>
+                </CoreDataContext.Provider>
             </Fragment>
         </Router>
     );

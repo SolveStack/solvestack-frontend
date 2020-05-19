@@ -1,16 +1,17 @@
-type Technology = {
+interface Technology {
     id: string;
     name: string;
     logoSource: string;
     wikipediaLink: string;
-};
+}
 
-type Component = {
+interface Component {
     id: string;
     name: string;
     wikipediaLink: string;
     technologies: Array<Technology>;
-};
+}
+
 export default interface Stack {
     id: string;
     name: string;
