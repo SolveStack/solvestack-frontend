@@ -20,13 +20,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 // Helper Functions
-import ScrollToTop from './util/ScrollToTop';
+import ScrollToTop from 'util/ScrollToTop';
 // App Components
-import Sidebar from './components/Sidebar';
-import Navbar from './components/Navbar';
+import Sidebar from 'components/Sidebar';
+import Navbar from 'components/Navbar';
+import Footer from 'components/Footer';
 // Custom Types
-import AppData, { initialAppData } from './types/AppData';
-import CoreData, { initialCoreData } from './types/CoreData';
+import AppData, { initialAppData } from 'types/AppData';
+import CoreData, { initialCoreData } from 'types/CoreData';
 
 export const CoreDataContext = createContext<[CoreData, Dispatch<SetStateAction<CoreData>>]>([
     { ...initialCoreData },
@@ -34,7 +35,9 @@ export const CoreDataContext = createContext<[CoreData, Dispatch<SetStateAction<
 ]);
 
 const drawerWidth = 240;
-const Home = lazy(() => import('./pages/Home')); // The home page is lazy loaded
+const Home = lazy(() => import('./pages/Home'));
+const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -111,10 +114,19 @@ const App: FunctionComponent = () => {
                                             <Route exact path="/">
                                                 <Home />
                                             </Route>
+                                            <Route exact path="/contact"></Route>
+                                            <Route exact path="/terms">
+                                                <TermsAndConditions />
+                                            </Route>
+                                            <Route exact path="/privacy">
+                                                <PrivacyPolicy />
+                                            </Route>
                                         </Switch>
                                     </Suspense>
                                 </Grid>
                             </Grid>
+
+                            <Footer></Footer>
                         </Container>
                     </div>
                 </CoreDataContext.Provider>

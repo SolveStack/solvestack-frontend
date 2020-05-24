@@ -13,6 +13,8 @@ import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import HelpIcon from '@material-ui/icons/Help';
 // App Components
 import ListLinks, { ListLink } from './ListLinks';
+// API
+import api from 'api';
 
 const drawerWidth = 240;
 
@@ -48,20 +50,7 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ isMobile, handleDrawerToggle
 
     useEffect(() => {
         // fake api that returns a partial list of all stacks {id, name}     stackList: Array<Partial<Stack>>;
-        const loadedData = [
-            {
-                id: 'hEowVJjYagxvhWPNw9HbU5',
-                name: 'Basic Website',
-                components: [
-                    {
-                        id: 'UEM8GvEgaMSNxQj3q3YFth',
-                        name: 'HTML',
-                    },
-                ],
-            },
-            { id: 'xcvomadpsadsakd12zx', name: 'Node 2' },
-            { id: 'lkasdasd0emaslfusle', name: 'Node 3' },
-        ];
+        const loadedData = api.stacks.list();
 
         const linkData = loadedData.map((data) => ({
             id: data.id,

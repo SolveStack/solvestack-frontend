@@ -1,15 +1,17 @@
 import React, { FunctionComponent } from 'react';
+// Material-UI Styles
 import { makeStyles } from '@material-ui/core/styles';
+// Material UI Components
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+// Material UI Icons
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-
+// App components and api
 import api from 'api';
 import Module from 'types/modules';
-import { InitialModule } from 'types/modules';
 
 import MediaControlCard from './MediaControlCard';
 

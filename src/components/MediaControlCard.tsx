@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Theme, createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
+import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Box from '@material-ui/core/Box';
@@ -49,12 +49,11 @@ const MediaControlCard: FunctionComponent<MediaControlCardProps> = ({
     thumbnailSource,
 }: MediaControlCardProps) => {
     const classes = useStyles();
-    const theme = useTheme();
 
     return (
         <Card className={classes.root}>
             <Box className={classes.box}>
-                {type == 'video' ? (
+                {type === 'video' ? (
                     <VideoLibraryIcon className={classes.icon} style={{ fontSize: 40 }} />
                 ) : (
                     <DescriptionIcon className={classes.icon} style={{ fontSize: 40 }} />
