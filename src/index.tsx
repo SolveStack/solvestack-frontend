@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -8,10 +8,13 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 const theme = createMuiTheme({
     palette: {
         primary: {
-            main: 'rgb(64, 81, 78)',
+            main: '#008080',
+            // dark: '#062d2d',
+            // light: '#02bfbf'
         },
         secondary: {
-            main: '#003c71',
+            // light: 'pink',
+            main: '#ff73a1',
         },
         info: {
             light: '#bcdafa',
@@ -44,83 +47,83 @@ const theme = createMuiTheme({
         },
     },
     typography: {
-        fontFamily: 'Intel Clear',
+        fontFamily: 'Arial',
         h1: {
-            fontFamily: 'Intel Clear',
+            fontFamily: 'Arial',
             fontWeight: 100,
             fontSize: '3rem',
             lineHeight: 1.5,
         },
         h2: {
-            fontFamily: 'Intel Clear',
+            fontFamily: 'Arial',
             fontWeight: 400,
             fontSize: '2rem',
             lineHeight: 1.5,
         },
         h3: {
-            fontFamily: 'Intel Clear',
+            fontFamily: 'Arial',
             fontWeight: 100,
             fontSize: '2rem',
             lineHeight: 1.5,
         },
         h4: {
-            fontFamily: 'Intel Clear',
+            fontFamily: 'Arial',
             fontWeight: 700,
             fontSize: '1.5rem',
             lineHeight: 1.5,
         },
         h5: {
-            fontFamily: 'Intel Clear',
+            fontFamily: 'Arial',
             fontWeight: 100,
             fontSize: '1.5rem',
             lineHeight: 1.5,
         },
         h6: {
-            fontFamily: 'Intel Clear',
+            fontFamily: 'Arial',
             fontWeight: 700,
             fontSize: '1.25rem',
             lineHeight: 1.5,
         },
         body1: {
-            fontFamily: 'Intel Clear',
+            fontFamily: 'Arial',
             fontWeight: 400,
             fontSize: '1rem',
             lineHeight: 1.5,
         },
         body2: {
-            fontFamily: 'Intel Clear',
+            fontFamily: 'Arial',
             fontWeight: 300,
             fontSize: '1rem',
             lineHeight: 1.5,
         },
         subtitle1: {
-            fontFamily: 'Intel Clear',
+            fontFamily: 'Arial',
             fontWeight: 400,
             fontSize: '0.9rem',
             lineHeight: 1.5,
         },
         subtitle2: {
-            fontFamily: 'Intel Clear',
+            fontFamily: 'Arial',
             fontWeight: 300,
             fontSize: '0.9rem',
             lineHeight: 1.5,
         },
         overline: {
-            fontFamily: 'Intel Clear',
+            fontFamily: 'Arial',
             fontWeight: 400,
             fontSize: '0.8rem',
             lineHeight: 1.5,
             textTransform: 'none',
         },
         caption: {
-            fontFamily: 'Intel Clear',
+            fontFamily: 'Arial',
             fontWeight: 300,
             fontSize: '0.8rem',
             lineHeight: 1.5,
             textTransform: 'none',
         },
         button: {
-            fontFamily: 'Intel Clear',
+            fontFamily: 'Arial',
             fontWeight: 400,
             fontSize: '0.7rem',
             lineHeight: 1.5,
@@ -130,9 +133,11 @@ const theme = createMuiTheme({
 });
 
 ReactDOM.render(
-    <MuiThemeProvider theme={theme}>
-        <App />
-    </MuiThemeProvider>,
+    <StrictMode>
+        <MuiThemeProvider theme={theme}>
+            <App />
+        </MuiThemeProvider>
+    </StrictMode>,
     document.getElementById('root'),
 );
 
