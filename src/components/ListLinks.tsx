@@ -77,36 +77,46 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({ listLinks, type = 'Stack
     const [listLinkItemsOpen, setListLinkItemsOpen] = useState<Array<OpenedLink>>([]);
 
     useEffect(() => {
+        const openedLinks: Array<OpenedLink> = listLinks
+            .map((link) => {
+                const array1: Array<OpenedLink> = [{ id: link.id, open: false }];
+                const array2: Array<OpenedLink> | undefined = link.children?.map((child) => ({
+                    id: child.id,
+                    open: false,
+                }));
+                if (array2 != null) {
+                    return array1.concat(array2);
+                }
+                return array1;
+            })
+            .flat();
+        console.log(openedLinks);
         // Base case
         if (listLinkItemsOpen === []) {
-            setListLinkItemsOpen((prevValue) =>
-                listLinks
-                    .map((link) => {
-                        const array1: Array<OpenedLink> = [{ id: link.id, open: false }];
-                        const array2: Array<OpenedLink> | undefined = link.children?.map((child) => ({
-                            id: child.id,
-                            open: false,
-                        }));
-                        if (array2 != null) {
-                            return array1.concat(array2);
-                        }
-                        return array1;
-                    })
-                    .flat(),
-            );
+            console.log('base case');
+            setListLinkItemsOpen((prevValue) => openedLinks);
         }
+        console.log(listLinkItemsOpen);
     }, [listLinkItemsOpen, listLinks]);
 
     const handleLinkClick = (linkIds: Array<string>): void => {
         console.log(linkIds);
+        const lastIndex = linkIds.length - 1;
+        console.log(linkIds[lastIndex]);
         if (type === 'StackList') {
-            console.log(type);
-
-            setCoreData((prevValue) => {
-                return {
-                    currentStackPath: linkIds,
-                };
+            setListLinkItemsOpen((prevValue) => {
+                const newValue = prevValue;
+                console.log(newValue);
+                const elementToChange = newValue.find((element) => element.id === linkIds[lastIndex]);
+                if (elementToChange) elementToChange.open = true;
+                console.log(elementToChange);
+                console.log(newValue);
+                return newValue;
             });
+            setCoreData((prevValue) => ({
+                ...prevValue,
+                currentStackPath: linkIds,
+            }));
             console.log(coreData);
         }
     };
