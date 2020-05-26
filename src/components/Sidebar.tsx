@@ -88,7 +88,7 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ isMobile, handleDrawerToggle
                 <div>
                     <div className={classes.toolbar} />
                     <Divider />
-                    <ListLinks listLinks={listLinks} />
+                    <ListLinks listLinks={listLinks} setListLinks={setListLinks} />
                 </div>
             </Drawer>
         </nav>

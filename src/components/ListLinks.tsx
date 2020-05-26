@@ -1,5 +1,5 @@
 // React
-import React, { FunctionComponent, useContext, useState, useEffect } from 'react';
+import React, { FunctionComponent, useContext, useState, useEffect, Dispatch, SetStateAction } from 'react';
 // React Router
 import { Link } from 'react-router-dom';
 // Material-UI Styles
@@ -52,8 +52,8 @@ export interface ListLink {
     children?: Array<ListLink>;
     open?: boolean;
 }
-export const initialListLinkData = {
-    id: 0,
+export const initialListLinkData: ListLink = {
+    id: '0',
     name: '',
     icon: <BarChartIcon />,
     source: '',
@@ -63,6 +63,7 @@ export const initialListLinkData = {
 
 interface ListLinksProps {
     listLinks: Array<ListLink>;
+    setListLinks: Dispatch<SetStateAction<Array<ListLink>>>;
     type?: 'StackList';
 }
 
@@ -71,10 +72,15 @@ interface OpenedLink {
     open: boolean;
 }
 
-const ListLinks: FunctionComponent<ListLinksProps> = ({ listLinks, type = 'StackList' }: ListLinksProps) => {
+const ListLinks: FunctionComponent<ListLinksProps> = ({
+    listLinks,
+    setListLinks,
+    type = 'StackList',
+}: ListLinksProps) => {
     const classes = useStyles();
     const [coreData, setCoreData] = useContext(CoreDataContext);
     const [listLinkItemsOpen, setListLinkItemsOpen] = useState<Array<OpenedLink>>([]);
+    const [subLevel1Opened, setSubLevel1Opened] = useState<any>({ id: 0, isOpened: false });
 
     useEffect(() => {
         const openedLinks: Array<OpenedLink> = listLinks
@@ -91,8 +97,14 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({ listLinks, type = 'Stack
             })
             .flat();
         console.log(openedLinks);
+        console.log(listLinks);
         // Base case
-        if (listLinkItemsOpen === []) {
+        // Empty arrrays aren't equivalent to each other
+        // so listLinkItems === [] will always return false
+        // an array is empty when it's length === 0
+        // an array doesn't exists if it's length is -1
+        // below we check if the array has a positive length
+        if (!listLinkItemsOpen.length) {
             console.log('base case');
             setListLinkItemsOpen((prevValue) => openedLinks);
         }
@@ -103,33 +115,63 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({ listLinks, type = 'Stack
         console.log(linkIds);
         const lastIndex = linkIds.length - 1;
         console.log(linkIds[lastIndex]);
+
+        setListLinks((prevValue) => {
+            if (linkIds.length === 1) {
+                // if the listIds array only contains one item, then toggle the open value of the parent level
+                return prevValue.map((listLink) =>
+                    listLink.id === linkIds[0] ? { ...listLink, open: !listLink.open } : listLink,
+                );
+            } else if (linkIds.length === 2) {
+                // if there are two items in the array, toggle the open value of the child level that contains the same id
+                // as the last item in the array.
+                // this works because the child levels are only accessible when the corresponding parent is open
+                const link = prevValue.find((listLink) => listLink.id === linkIds[0]) || initialListLinkData;
+                if (link.children && link.children.length) {
+                    return prevValue.map((listLink) =>
+                        listLink.id === linkIds[0]
+                            ? {
+                                  ...listLink,
+                                  children: (listLink.children as Array<ListLink>).map((childLink) =>
+                                      childLink.id === linkIds[1] ? { ...childLink, open: !childLink.open } : childLink,
+                                  ),
+                              }
+                            : listLink,
+                    );
+                }
+            }
+
+            return prevValue;
+        });
+
         if (type === 'StackList') {
-            setListLinkItemsOpen((prevValue) => {
-                const newValue = prevValue;
-                console.log(newValue);
-                const elementToChange = newValue.find((element) => element.id === linkIds[lastIndex]);
-                if (elementToChange) elementToChange.open = true;
-                console.log(elementToChange);
-                console.log(newValue);
-                return newValue;
-            });
+            // setListLinkItemsOpen((prevValue) => {
+            //     const newValue = prevValue;
+            //     console.log(newValue);
+            //     const elementToChange = newValue.find((element) => element.id === linkIds[lastIndex]);
+            //     if (elementToChange) elementToChange.open = true;
+            //     console.log(elementToChange);
+            //     console.log(newValue);
+            //     return newValue;
+            // });
             setCoreData((prevValue) => ({
                 ...prevValue,
                 currentStackPath: linkIds,
             }));
-            console.log(coreData);
+            // setCoreData isn't synchronous so if we console.log the value here, it will return the previous results
+            //  console.log(coreData);
         }
     };
 
     return (
-        <List dense>
+        <List dense component="nav" aria-labelledby="list-header">
             {listLinks.map((topLink) => (
                 <React.Fragment key={topLink.id}>
                     <ListItem
                         button
                         key={topLink.id}
                         title={topLink.name}
-                        selected={topLink.id === coreData.currentStackPath[coreData.currentStackPath.length - 1]}
+                        selected={topLink.id === coreData.currentStackPath[0]}
                         onClick={(): void => handleLinkClick([topLink.id])}
                     >
                         <ListItemIcon>{topLink.icon}</ListItemIcon>
@@ -144,10 +186,11 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({ listLinks, type = 'Stack
                     </ListItem>
                     {topLink.children?.map((childLevel1) => (
                         <Collapse in={topLink.open} timeout="auto" unmountOnExit key={childLevel1.id}>
-                            <List component="div" disablePadding>
+                            <List component="div" disablePadding dense>
                                 <ListItem
                                     button
                                     className={classes.nested}
+                                    selected={topLink.id === coreData.currentStackPath[1]}
                                     onClick={(): void => handleLinkClick([topLink.id, childLevel1.id])}
                                 >
                                     <ListItemIcon>
