@@ -25,6 +25,8 @@ import ScrollToTop from 'util/ScrollToTop';
 import Sidebar from 'components/Sidebar';
 import Navbar from 'components/Navbar';
 import Footer from 'components/Footer';
+// App Pages
+import ContactUsForm from 'pages/ContactUsPlaceholder';
 // Custom Types
 import AppData, { initialAppData } from 'types/AppData';
 import CoreData, { initialCoreData } from 'types/CoreData';
@@ -114,7 +116,9 @@ const App: FunctionComponent = () => {
                                             <Route exact path="/">
                                                 <Home />
                                             </Route>
-                                            <Route exact path="/contact"></Route>
+                                            <Route exact path="/contact">
+                                                <ContactUsForm />
+                                            </Route>
                                             <Route exact path="/terms">
                                                 <TermsAndConditions />
                                             </Route>
