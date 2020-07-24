@@ -4,6 +4,7 @@ import React, { FunctionComponent } from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 // Material-UI Components
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -13,13 +14,9 @@ const useStyles = makeStyles((theme: Theme) =>
             padding: theme.spacing(16, 8),
             textAlign: 'center',
         },
-        sheen: {
+        getStartedSheen: {
             background: 'linear-gradient(110deg, #000 20%, pink 40%, #ff73a1 60%, #000 80%)',
             backgroundSize: '200% auto',
-            backgroundClip: 'text',
-            textFillColor: 'transparent',
-            '-webkit-background-clip': 'text',
-            '-webkit-text-fill-color': 'transparent',
             animation: '$shine 6s linear infinite',
             '&:hover': {
                 animation: '$tilt 1.25s ease-in-out infinite alternate',
@@ -54,12 +51,15 @@ const Banner: FunctionComponent<BannerProps> = ({ title, subtitle }: BannerProps
 
     return (
         <Paper elevation={20} className={classes.paper}>
-            <Typography component="h1" variant="h1" className={classes.sheen}>
+            <Typography component="h1" variant="h1">
                 {title}
             </Typography>
             <Typography component="p" variant="h2">
                 {subtitle}
             </Typography>
+            <Button variant="contained" className={classes.getStartedSheen} href="/signup">
+                Get Started
+            </Button>
         </Paper>
     );
 };

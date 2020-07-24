@@ -40,6 +40,8 @@ const drawerWidth = 240;
 const Home = lazy(() => import('./pages/Home'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const SignUp = lazy(() => import('./pages/SignUp'));
+const SignIn = lazy(() => import('./pages/SignIn'));
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -115,6 +117,12 @@ const App: FunctionComponent = () => {
                                         <Switch>
                                             <Route exact path="/">
                                                 <Home />
+                                            </Route>
+                                            <Route exact path="/signup">
+                                                <SignUp />
+                                            </Route>
+                                            <Route exact path="/signin">
+                                                <SignIn />
                                             </Route>
                                             <Route exact path="/contact">
                                                 <ContactUsForm />
