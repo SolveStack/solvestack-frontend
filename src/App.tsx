@@ -38,6 +38,7 @@ export const CoreDataContext = createContext<[CoreData, Dispatch<SetStateAction<
 
 const drawerWidth = 240;
 const Home = lazy(() => import('./pages/Home'));
+const Glossary = lazy(() => import('./pages/Glossary'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 
@@ -115,6 +116,9 @@ const App: FunctionComponent = () => {
                                         <Switch>
                                             <Route exact path="/">
                                                 <Home />
+                                            </Route>
+                                            <Route exact path="/glossary">
+                                                <Glossary />
                                             </Route>
                                             <Route exact path="/contact">
                                                 <ContactUsForm />
