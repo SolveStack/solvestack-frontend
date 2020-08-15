@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme: Theme) =>
             padding: theme.spacing(3),
             display: 'flex',
             marginTop: '4rem',
-            [theme.breakpoints.up('sm')]: {
+            [theme.breakpoints.up('md')]: {
                 width: `calc(100% - ${drawerWidth}px)`,
                 marginLeft: drawerWidth,
                 marginTop: '3.5rem',
