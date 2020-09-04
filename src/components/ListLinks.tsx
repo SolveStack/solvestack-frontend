@@ -127,8 +127,9 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({ listLinks, type = 'Stack
                     }
                 />
             </ListItem>
-            <ListItem button title="About the Instructors">
-                <ListItemIcon>
+            <ListItem button title="About the Instructors" disabled>
+                <div className={classes.bgText}>Coming soon!</div>
+                <ListItemIcon className={classes.listItemContent}>
                     <YouTubeIcon />
                 </ListItemIcon>
                 <ListItemText
@@ -154,21 +155,19 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({ listLinks, type = 'Stack
                     />
                 </ListItem>
             </Link>
-            <Link to="/glossary" className={classes.link}>
-                <ListItem button title="Glossary" disabled>
-                    <div className={classes.bgText}>Coming soon!</div>
-                    <ListItemIcon className={classes.listItemContent}>
-                        <HelpIcon />
-                    </ListItemIcon>
-                    <ListItemText
-                        primary={
-                            <Typography component="div" variant="subtitle1">
-                                Glossary
-                            </Typography>
-                        }
-                    />
-                </ListItem>
-            </Link>
+            <ListItem button title="Glossary" disabled>
+                <div className={classes.bgText}>Coming soon!</div>
+                <ListItemIcon className={classes.listItemContent}>
+                    <HelpIcon />
+                </ListItemIcon>
+                <ListItemText
+                    primary={
+                        <Typography component="div" variant="subtitle1">
+                            Glossary
+                        </Typography>
+                    }
+                />
+            </ListItem>
         </List>
     );
 };
