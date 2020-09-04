@@ -30,6 +30,18 @@ const useStyles = makeStyles((theme: Theme) =>
                 textDecoration: 'none',
             },
         },
+        listItemContent: {
+            position: 'relative',
+        },
+        bgText: {
+            position: 'absolute',
+            color: theme.palette.primary.main,
+            fontSize: '9px',
+            fontWeight: 'bold',
+            pointerEvents: 'none',
+            '-webkit-transform': 'rotate(-45deg)',
+            '-moz-transform': 'rotate(-45deg)',
+        },
     }),
 );
 
@@ -89,20 +101,22 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({ listLinks, type = 'Stack
                     />
                 </ListItem>
             ))}
-            <ListItem button title="Aspiring Software Developers">
-                <ListItemIcon>
+            <ListItem button title="Aspiring Software Developers" disabled>
+                <div className={classes.bgText}>Coming soon!</div>
+                <ListItemIcon className={classes.listItemContent}>
                     <ComputerIcon />
                 </ListItemIcon>
                 <ListItemText
                     primary={
-                        <Typography component="div" variant="subtitle1">
+                        <Typography component="div" variant="subtitle2">
                             Aspiring Software Developers
                         </Typography>
                     }
                 />
             </ListItem>
-            <ListItem button title="Training for Tech Companies">
-                <ListItemIcon>
+            <ListItem button title="Training for Tech Companies" disabled>
+                <div className={classes.bgText}>Coming soon!</div>
+                <ListItemIcon className={classes.listItemContent}>
                     <BusinessIcon />
                 </ListItemIcon>
                 <ListItemText

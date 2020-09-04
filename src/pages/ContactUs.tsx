@@ -52,15 +52,6 @@ const ContactUs: FunctionComponent = () => {
         },
     });
 
-    const ComingSoonMessage: FunctionComponent = () => {
-        return (
-            <Paper>
-                <Typography component="h2">Contact us emails are coming soon!</Typography>
-                <Typography>For now, reach us at ana.tomboulian@gmail.com or bluefire2121@gmail.com</Typography>
-            </Paper>
-        );
-    };
-
     return (
         <Box>
             <Card>
