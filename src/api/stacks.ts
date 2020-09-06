@@ -43,7 +43,7 @@ const hEowVJjYagxvhWPNw9HbU5 = {
         },
         {
             id: 'AqXXSJHNdk5cj8LVox6Mz9',
-            name: 'Code & Framework',
+            name: 'Code \n& Framework',
             wikipediaLink: 'https://en.wikipedia.org/wiki/Web_framework',
             technologies: [
                 {
@@ -147,7 +147,21 @@ const hEowVJjYagxvhWPNw9HbU5 = {
             id: 'Lk8RAqEDaN7mXTkAEmiaxV',
             name: 'Host',
             wikipediaLink: 'https://en.wikipedia.org/wiki/Category:Web_hosting',
-            technologies: [],
+            technologies: [
+                {
+                    id: 'yzhwYA4B3RsFvLTAEo7eMw',
+                    name: 'Windows',
+                    wikipediaLink: 'https://en.wikipedia.org/wiki/Microsoft_Windows',
+                    logoSource:
+                        'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Windows_darkblue_2012.svg/2880px-Windows_darkblue_2012.svg.png',
+                },
+                {
+                    id: 'xpMBpooMaGJRPeSJuYKAJn',
+                    name: 'Linux',
+                    wikipediaLink: 'https://en.wikipedia.org/wiki/Linux',
+                    logoSource: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1280px-Tux.svg.png',
+                },
+            ],
         },
     ],
 };

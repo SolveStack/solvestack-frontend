@@ -51,9 +51,9 @@ const Dendrogram: FunctionComponent = () => {
                     name: component.name,
                     children: component.technologies.map((technology) => ({
                         name: technology.name,
-                        value: Math.floor(Math.random() * 148) + 30,
+                        value: Math.floor(Math.random() * 500) + 30,
                     })),
-                    value: component.technologies.length ? undefined : Math.floor(Math.random() * 148) + 30,
+                    value: component.technologies.length ? undefined : Math.floor(Math.random() * 150) + 30,
                 })),
             },
         ];
@@ -66,6 +66,8 @@ const Dendrogram: FunctionComponent = () => {
 
         networkSeries.nodes.template.label.text = '{name}';
         networkSeries.fontSize = 10;
+        networkSeries.minRadius = 15;
+        networkSeries.maxRadius = 40;
 
         networkSeries.links.template.strokeWidth = 1;
 
