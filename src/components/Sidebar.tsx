@@ -63,7 +63,9 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ isMobile, handleDrawerToggle
                 ) : (
                     <HelpIcon />
                 ),
-            children: data.components?.map((childData) => ({ id: childData.id, name: childData.name })) || [],
+            children:
+                data.components?.map((childData) => ({ id: childData.id, name: childData.name, open: false })) || [],
+            open: false,
         }));
 
         setListLinks(linkData);
@@ -86,7 +88,7 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ isMobile, handleDrawerToggle
                 <div>
                     <div className={classes.toolbar} />
                     <Divider />
-                    <ListLinks listLinks={listLinks} />
+                    <ListLinks listLinks={listLinks} setListLinks={setListLinks} />
                 </div>
             </Drawer>
         </nav>
