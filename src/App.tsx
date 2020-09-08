@@ -44,20 +44,6 @@ const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        authentication: {
-            background: 'linear-gradient(18deg, rgba(0,60,113,1) 20%, rgba(0,113,197,1) 72%, rgba(0,174,239,1) 100%)',
-            color: theme.palette.common.white,
-            margin: 'auto',
-            height: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: theme.spacing(2),
-        },
-        intelLogo: {
-            marginRight: theme.spacing(1),
-        },
         main: {
             flexGrow: 1,
             padding: theme.spacing(3),
