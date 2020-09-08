@@ -57,10 +57,10 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: '1rem',
         },
         menuButton: {
-            marginRight: theme.spacing(2),
-            [theme.breakpoints.up('sm')]: {
-                display: 'none',
-            },
+            // marginRight: theme.spacing(2),
+            // [theme.breakpoints.up('sm')]: {
+            //     display: 'none',
+            // },
         },
         toolbar: theme.mixins.toolbar as
             | CSSProperties

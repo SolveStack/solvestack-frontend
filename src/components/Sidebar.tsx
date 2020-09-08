@@ -44,7 +44,7 @@ interface SidebarProps {
 const Sidebar: FunctionComponent<SidebarProps> = ({ isMobile, handleDrawerToggle }: SidebarProps) => {
     const classes = useStyles();
     const theme = useTheme();
-    const isDesktop: boolean = useMediaQuery(theme.breakpoints.up('sm'));
+    const isDesktop: boolean = useMediaQuery(theme.breakpoints.up('md'));
 
     const [listLinks, setListLinks] = useState<Array<ListLink>>([]);
 
