@@ -10,6 +10,8 @@ interface Component {
     name: string;
     wikipediaLink: string;
     technologies: Array<Technology>;
+    blurb?: string;
+    callToAction?: string;
 }
 
 export default interface Stack {
@@ -32,4 +34,14 @@ export const InitialStack = {
     createdBy: '',
     modifiedAt: 0,
     modifiedBy: '',
+};
+
+export const InitialComponent = {
+    id: '',
+    name: '',
+    wikipediaLink: '',
+    blurb: '',
+    articles: [],
+    videos: [],
+    technologies: [],
 };

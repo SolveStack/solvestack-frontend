@@ -180,11 +180,11 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
             {listLinks.map((topLink) => (
                 <React.Fragment key={topLink.id}>
                     <ListItem
-                        //button
+                        button
                         key={topLink.id}
                         title={topLink.name}
                         selected={topLink.id === coreData.currentStackPath[0]}
-                        //onClick={(): void => handleLinkClick([topLink.id])}
+                        onClick={(): void => handleLinkClick([topLink.id])}
                     >
                         <ListItemIcon>{topLink.icon}</ListItemIcon>
                         <ListItemText
@@ -194,7 +194,7 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
                                 </Typography>
                             }
                         />
-                        {/* {topLink.open ? <ExpandLess /> : <ExpandMore />} */}
+                        {topLink.open ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                     {topLink.children?.map((childLevel1) => (
                         <Collapse in={topLink.open} timeout="auto" unmountOnExit key={childLevel1.id}>

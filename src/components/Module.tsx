@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 // Material-UI Styles
 import { makeStyles } from '@material-ui/core/styles';
 // Material UI Components
@@ -12,6 +12,9 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 // App components and api
 import api from 'api';
 import Module from 'types/modules';
+import Component, { InitialComponent } from 'types/stacks';
+// Data Context
+import { CoreDataContext } from 'App';
 
 import MediaControlCard from './MediaControlCard';
 
@@ -33,12 +36,21 @@ const useStyles = makeStyles({
 });
 
 interface MediaProps {
-    module: Module;
+    module: Module | Component;
 }
 
 const ModuleCard: FunctionComponent = () => {
     const classes = useStyles();
-    const module = api.modules.get('SgPw7783b5hD8yrQx4Z7cL');
+    const [coreData, setCoreData] = useContext(CoreDataContext);
+    const module =
+        api.stacks
+            .get(coreData.currentStackPath[0])
+            .components.find((component) => component.id == coreData.currentStackPath[1]) || InitialComponent;
+
+    const Blurb: FunctionComponent<MediaProps> = ({ module }: MediaProps) => (
+        <MediaControlCard key={module.id} name={module.name} blurb={module.blurb} type="article" />
+    );
+
     const Articles: FunctionComponent<MediaProps> = ({ module }: MediaProps) => (
         <>
             {module.articles.map((article) => (
@@ -60,10 +72,11 @@ const ModuleCard: FunctionComponent = () => {
                 <Typography variant="h5" component="h1">
                     {module.name}
                 </Typography>
-                <Typography className={classes.pos} color="textSecondary">
+                {/* <Typography className={classes.pos} color="textSecondary">
                     {module.blurb}
-                </Typography>
+                </Typography> */}
             </CardContent>
+            <Blurb module={module} />
             <Articles module={module} />
             <Videos module={module} />
             <CardActions>

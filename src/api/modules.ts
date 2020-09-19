@@ -29,6 +29,7 @@ export default {
                     },
                 ],
             };
+        } else if (id === '') {
         }
         return InitialModule;
     },
