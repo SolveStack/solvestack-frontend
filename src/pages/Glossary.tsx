@@ -3,8 +3,7 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/core/Autocomplete';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 // Components
 import TermCard from 'components/TermCard';
 // API
@@ -12,17 +11,8 @@ import api from 'api';
 // Types
 import Term, { initialTermData } from 'types/glossary';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        search: {
-            position: 'absolute',
-            right: 20,
-        },
-    }),
-);
-
 const Glossary: FunctionComponent = () => {
-    const classes = useStyles();
+    const [query, setQuery] = useState<string>('');
     const [terms, setTerms] = useState<Term[]>([{ ...initialTermData }]);
     useEffect(() => {
         function loadData(): void {
@@ -33,11 +23,26 @@ const Glossary: FunctionComponent = () => {
         loadData();
     }, []);
 
-    const search = (query: string): void => {
-        api.glossary.search(query).then((response) => {
-            setTerms(response.data);
-        });
-    }
+    const handleChange = () => (e: React.ChangeEvent<HTMLInputElement>): void => {
+        const target = e.target;
+        const value = target.value;
+        setQuery(value);
+    };
+
+    useEffect(() => {
+        const listener = (event: KeyboardEvent): void => {
+            if (event.code === 'Enter' || event.code === 'NumpadEnter') {
+                api.glossary.search(query).then((response) => {
+                    setTerms(response.data);
+                });
+            }
+        };
+        document.addEventListener('keydown', listener);
+        return (): void => {
+            document.removeEventListener('keydown', listener);
+        };
+    }, [query]);
+
     return (
         <>
             <Box>
