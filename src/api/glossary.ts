@@ -1,13 +1,13 @@
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
+import { solvestackAPIClient } from './clients';
 import Term from 'types/glossary';
-
-interface ServerResponse {
-    data: Term[];
-}
 
 export default {
     list(): Promise<AxiosResponse<Term[]>> {
-        return axios.get<Array<Term>>('http://localhost:8000/terms/');
+        return solvestackAPIClient.get<Array<Term>>('http://localhost:8000/terms/');
+    },
+    search(search: string): Promise<AxiosResponse<Term[]>> {
+        return solvestackAPIClient.get<Array<Term>>(`http://localhost:8000/terms/?name=${search}`);
     },
     search(search: string): Promise<AxiosResponse<Term[]>> {
         return axios.get<Array<Term>>(`https://localhost:8000/terms/?name=${search}`);

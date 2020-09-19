@@ -9,7 +9,7 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import TermCard from 'components/TermCard';
 // API
 import api from 'api';
-
+// Types
 import Term, { initialTermData } from 'types/glossary';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -45,21 +45,26 @@ const Glossary: FunctionComponent = () => {
                     Glossary
                 </Typography>
                 <Autocomplete
-        freeSolo
-        id="free-solo-2-demo"
-        disableClearable
-        options={terms.map((term) => term.name)}
-        renderInput={(params): JSX => (
-          <TextField
-            {...params}
-            label="Search input"
-            margin="normal"
-            variant="outlined"
-            InputProps={{ ...params.InputProps, type: 'search' }}
-          />
-        )}
-      />
-                <TextField className={classes.search} id="standard-basic"></TextField>
+                    freeSolo
+                    disableClearable
+                    options={terms.map((term) => term.name)}
+                    renderInput={(
+                        params: JSX.IntrinsicAttributes & import('@material-ui/core/TextField').StandardTextFieldProps,
+                    ): JSX.Element => (
+                        <TextField
+                            {...params}
+                            label="Search input"
+                            margin="normal"
+                            variant="outlined"
+                            InputProps={{
+                                ...params.InputProps,
+                                type: 'search',
+                            }}
+                            onChange={handleChange()}
+                            id="standard-basic"
+                        />
+                    )}
+                />
             </Box>
             {terms && terms.map((term) => <TermCard key={term.id} term={term}></TermCard>)}
         </>
