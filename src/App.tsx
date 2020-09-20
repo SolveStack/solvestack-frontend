@@ -27,6 +27,7 @@ import Navbar from 'components/Navbar';
 import Footer from 'components/Footer';
 // App Pages
 import ContactUsForm from 'pages/ContactUsPlaceholder';
+import MeetupEvents from 'pages/MeetupEvents';
 // Custom Types
 import AppData, { initialAppData } from 'types/AppData';
 import CoreData, { initialCoreData } from 'types/CoreData';
@@ -105,6 +106,9 @@ const App: FunctionComponent = () => {
                                             </Route>
                                             <Route exact path="/glossary">
                                                 <Glossary />
+                                            </Route>
+                                            <Route exact path="/meetup-events">
+                                                <MeetupEvents />
                                             </Route>
                                             <Route exact path="/contact">
                                                 <ContactUsForm />
