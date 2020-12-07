@@ -68,6 +68,9 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ isMobile, handleDrawerToggle
             open: false,
         }));
 
+        console.log('------------------------linkData------------------------------');
+        console.log(linkData);
+
         setListLinks(linkData);
     }, []);
 
