@@ -184,7 +184,7 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
                         key={topLink.id}
                         title={topLink.name}
                         selected={topLink.id === coreData.currentStackPath[0]}
-                        //onClick={(): void => handleLinkClick([topLink.id])}
+                        onClick={(): void => handleLinkClick([topLink.id])}
                     >
                         <ListItemIcon>{topLink.icon}</ListItemIcon>
                         <ListItemText
