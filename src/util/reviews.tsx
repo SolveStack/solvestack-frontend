@@ -6,6 +6,8 @@ import Card from '@material-ui/core/Card';
 import { CardHeader } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+// Material-UI Styles
+import { makeStyles } from '@material-ui/core/styles';
 
 interface Review {
   key: number;
@@ -13,6 +15,12 @@ interface Review {
   date: string;
   text: string;
 }
+
+const useStyles = makeStyles({
+  testimonials: {
+    alignSelf: 'stretch'
+  },
+});
 
 //For all new reviews, push to the end and be sure to give a key
 export const reviews: Array<Review> = [
@@ -49,13 +57,14 @@ export const reviews: Array<Review> = [
 ];
 
 export const ReviewSquare: FunctionComponent<Review> = (props) => {
+  const classes = useStyles();
   return (
     <React.Fragment>
-      <Grid item md={4}>
+      <Grid item md={4} className={classes.testimonials}>
         <Card>
         <CardHeader
           title={props.title}
-          subtitle={props.date}
+          subheader={props.date}
         />
           <CardContent>
             <Typography>

@@ -1,24 +1,21 @@
 // React
 import React, { FunctionComponent } from 'react';
 // Material-UI Styles
-//import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 // Material UI Components
 import Grid from '@material-ui/core/Grid';
 import { reviews, ReviewSquare } from '../util/reviews';
 
-/*
-TODO: figure out how to style
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-    }),
-);
+const useStyles = makeStyles({
+    testimonials: {
+      alignItems: 'stretch'
+    },
+  });
 
-const classes = useStyles();
-*/
 const Testimonials: FunctionComponent = () => {
-
+    const classes = useStyles();
     return (
-        <Grid container spacing={3}>
+        <Grid container spacing={3} className={classes.testimonials} >
             {reviews
                 .slice(0)
                 .reverse()
