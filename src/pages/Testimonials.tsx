@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Grid';
 
-import { reviews, ReviewSquare } from '../util/reviews';
+import { reviews, ReviewSquare } from '../components/Reviews';
 const useStyles = makeStyles({
     testimonials: {
       alignItems: 'stretch'

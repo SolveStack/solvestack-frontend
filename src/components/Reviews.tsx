@@ -20,6 +20,7 @@ const useStyles = makeStyles({
   testimonials: {
     alignSelf: 'stretch'
   },
+  card: { height: "100%" }
 });
 
 //For all new reviews, push to the end and be sure to give a key
@@ -61,7 +62,7 @@ export const ReviewSquare: FunctionComponent<Review> = (props) => {
   return (
     <React.Fragment>
       <Grid item md={4} className={classes.testimonials}>
-        <Card>
+        <Card className={classes.card} >   
         <CardHeader
           title={props.title}
           subheader={props.date}
