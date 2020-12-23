@@ -216,19 +216,20 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
                     ))}
                 </React.Fragment>
             ))}
-            <ListItem button title="Aspiring Software Developers" disabled>
-                <div className={classes.bgText}>Coming soon!</div>
-                <ListItemIcon className={classes.listItemContent}>
-                    <ComputerIcon />
-                </ListItemIcon>
-                <ListItemText
-                    primary={
-                        <Typography component="div" variant="subtitle2">
-                            Aspiring Software Developers
-                        </Typography>
-                    }
-                />
-            </ListItem>
+            <Link to="/aspiring-software-developers" className={classes.link} >
+                <ListItem button title="Aspiring Software Developers">
+                    <ListItemIcon className={classes.listItemContent}>
+                        <ComputerIcon />
+                    </ListItemIcon>
+                    <ListItemText
+                        primary={
+                            <Typography component="div" variant="subtitle2">
+                                Aspiring Software Developers
+                            </Typography>
+                        }
+                    />
+                </ListItem>
+            </Link>
             <ListItem button title="Training for Tech Companies" disabled>
                 <div className={classes.bgText}>Coming soon!</div>
                 <ListItemIcon className={classes.listItemContent}>

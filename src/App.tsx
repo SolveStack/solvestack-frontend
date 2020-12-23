@@ -41,6 +41,7 @@ const Home = lazy(() => import('./pages/Home'));
 const Glossary = lazy(() => import('./pages/Glossary'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const AspiringSD = lazy( () => import('./pages/AspiringSD')); 
 const Testimonials = lazy(() => import('./pages/Testimonials'));
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -109,6 +110,9 @@ const App: FunctionComponent = () => {
                                             </Route>
                                             <Route exact path="/contact">
                                                 <ContactUsForm />
+                                            </Route>
+                                            <Route exact path="/aspiring-software-developers">
+                                                <AspiringSD />
                                             </Route>
                                             <Route exact path="/terms">
                                                 <TermsAndConditions />
