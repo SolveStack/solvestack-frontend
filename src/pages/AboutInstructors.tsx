@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 // Material UI Components
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Grid';
-
+import { instructors, InstructorSquare } from '../components/Instructors';
 
 const useStyles = makeStyles({
     aboutInstructors: {
@@ -24,7 +24,18 @@ const AboutInstructors: FunctionComponent = () => {
                 </Typography>
                 </header>
           </Grid>
-            {}
+            {instructors
+                .map((instructor: { key: number; title: string; text: string; linkedIn: string; website: string;
+                  twitter: string; image: any; }) => {
+                    return <InstructorSquare 
+                      key={instructor.key} 
+                      title={instructor.title} 
+                      text={instructor.text} 
+                      linkedIn={instructor.linkedIn} 
+                      website={instructor.website} 
+                      twitter={instructor.twitter} 
+                      image={instructor.image} />;
+                })}
         </Grid>
     );
 };
