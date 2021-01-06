@@ -56,7 +56,8 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ isMobile, handleDrawerToggle
             id: data.id,
             name: data.name,
             icon:
-                data.name === 'Basic Website' ? (
+                // TODO: make this more sustainable
+                data.name === 'Basic Website' || data.name === 'Backend/Frontend' ? (
                     <CodeIcon />
                 ) : data.name === 'Node 2' ? (
                     <AccountTreeIcon />

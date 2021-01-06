@@ -21,6 +21,7 @@ import ComputerIcon from '@material-ui/icons/Computer';
 import BusinessIcon from '@material-ui/icons/Business';
 import EmailIcon from '@material-ui/icons/Email';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
+import SentimentSatisfiedAltIcon from '@material-ui/icons/SentimentSatisfiedAlt';
 // Data Context
 import { CoreDataContext } from 'App';
 
@@ -108,8 +109,8 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
                 return array1;
             })
             .flat();
-        console.log(openedLinks);
-        console.log(listLinks);
+        console.log(`openedLinks: `, openedLinks);
+        console.log(`listLinks: `, listLinks);
         // Base case
         // Empty arrrays aren't equivalent to each other
         // so listLinkItems === [] will always return false
@@ -120,13 +121,13 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
             console.log('base case');
             setListLinkItemsOpen((prevValue) => openedLinks);
         }
-        console.log(listLinkItemsOpen);
+        console.log(`listLinkItemsOpen: `, listLinkItemsOpen);
     }, [listLinkItemsOpen, listLinks]);
 
     const handleLinkClick = (linkIds: Array<string>): void => {
-        console.log(linkIds);
+        console.log(`linkIds: `,linkIds);
         const lastIndex = linkIds.length - 1;
-        console.log(linkIds[lastIndex]);
+        console.log(`linkIds[lastIndex]: `,linkIds[lastIndex]);
 
         setListLinks((prevValue) => {
             if (linkIds.length === 1) {
@@ -184,7 +185,7 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
                         key={topLink.id}
                         title={topLink.name}
                         selected={topLink.id === coreData.currentStackPath[0]}
-                        //onClick={(): void => handleLinkClick([topLink.id])}
+                        onClick={(): void => handleLinkClick([topLink.id])}
                     >
                         <ListItemIcon>{topLink.icon}</ListItemIcon>
                         <ListItemText
@@ -215,19 +216,20 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
                     ))}
                 </React.Fragment>
             ))}
-            <ListItem button title="Aspiring Software Developers" disabled>
-                <div className={classes.bgText}>Coming soon!</div>
-                <ListItemIcon className={classes.listItemContent}>
-                    <ComputerIcon />
-                </ListItemIcon>
-                <ListItemText
-                    primary={
-                        <Typography component="div" variant="subtitle2">
-                            Aspiring Software Developers
-                        </Typography>
-                    }
-                />
-            </ListItem>
+            <Link to="/aspiring-software-developers" className={classes.link}>
+                <ListItem button title="Aspiring Software Developers">
+                    <ListItemIcon className={classes.listItemContent}>
+                        <ComputerIcon />
+                    </ListItemIcon>
+                    <ListItemText
+                        primary={
+                            <Typography component="div" variant="subtitle2">
+                                Aspiring Software Developers
+                            </Typography>
+                        }
+                    />
+                </ListItem>
+            </Link>
             <Link to="/training" className={classes.link}>
               <ListItem button title="Training for Tech Companies">
                   <ListItemIcon className={classes.listItemContent}>
@@ -283,6 +285,22 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
                     }
                 />
             </ListItem>
+            <Link to="/testimonials" className={classes.link}>
+                <ListItem button title="Testimonials">
+                    
+                    <ListItemIcon className={classes.listItemContent}>
+                        <SentimentSatisfiedAltIcon />
+                    </ListItemIcon>
+                    <ListItemText
+                        primary={
+                            <Typography component="div" variant="subtitle1">
+                                Testimonials
+                            </Typography>
+                        }
+                    />
+                </ListItem>
+            </Link>
+            
         </List>
     );
 };
