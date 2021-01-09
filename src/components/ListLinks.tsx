@@ -216,7 +216,7 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
                     ))}
                 </React.Fragment>
             ))}
-            <Link to="/aspiring-software-developers" className={classes.link} >
+            <Link to="/aspiring-software-developers" className={classes.link}>
                 <ListItem button title="Aspiring Software Developers">
                     <ListItemIcon className={classes.listItemContent}>
                         <ComputerIcon />
