@@ -85,7 +85,8 @@ export const instructors: Array<Instructor> = [
     key: 4,
     title: "Mike Nolte",
     specialty: "",
-    text: "",
+    text: `Good enough, smart enough, and otherwise reprehensible, Mike likes: building things and watching them work, cultural references, writing in the third person, and lists with 3 items.
+    Like many professional Infrastructure dorks, I started using computers to play video games and learn how to be much cooler online. Through an internship, I got a job doing absolutely everything for nonprofits and other companies too small to have dedicated IT staff. I started programming to build Linux phone systems and firewalls on donated hardware. When it became clear that I couldn't manage them all and also sleep, I got into  automation, and I've spent most of the past 15 years trying to automate myself out of a series of jobs.`,
     linkedIn: "",
     website: "",
     twitter: "",
@@ -107,7 +108,7 @@ export const InstructorSquare: FunctionComponent<Instructor> = (props) => {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Grid item md={4} className={classes.instructors}>
+      <Grid item md={6} className={classes.instructors}>
         <Card className={classes.card} >   
         <CardHeader
           title={props.title}

@@ -17,7 +17,7 @@ const AboutInstructors: FunctionComponent = () => {
     const classes = useStyles();
     return (
         <Grid container spacing={3} className={classes.aboutInstructors} >
-            <Grid item xs={12} >
+            <Grid item xs={12}  >
                 <header>
                 <Typography>
                     <h1>About the Instructors</h1>
