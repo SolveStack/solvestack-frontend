@@ -1,10 +1,10 @@
 // React
 import React, { FunctionComponent } from 'react';
-// Material-UI Styles
-import { makeStyles } from '@material-ui/core/styles';
 // Material UI Components
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Grid';
+// Material-UI Styles
+import { makeStyles } from '@material-ui/core/styles';
 
 import { reviews, ReviewSquare } from '../components/Reviews';
 const useStyles = makeStyles({
