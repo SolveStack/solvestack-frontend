@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 //instructor photos
 import ana from '../assets/ana.png';
 import alec from '../assets/alec.jpg';
+import brandon from '../assets/brandon.jpg';
 import chrissy from '../assets/chrissy.jpg';
 import daisy from '../assets/daisy.png';
 
@@ -74,12 +75,12 @@ export const instructors: Array<Instructor> = [
   {
     key: 3,
     title: "Brandon Knox",
-    specialty: "",
+    specialty: "Data Analysis with Python",
     text: "Brandon first discovered programming with BASIC. He was hooked when he started writing text adventure games after playing Zork. He now spends most of his day writing code in Python for reporting and analysis at a financial institution. Some nights he is a substitute teacher, covering curriculum for data analysis with Python and JavaScript. He enjoys mentoring other programmers inside and outside of work, digitally painting, and quiet evenings with a good book. Current projects include learning native iOS development with Swift and learning data analysis with PySpark.",
     linkedIn: "https://www.linkedin.com/in/brandon-knox-04877617/",
     website: "",
     twitter: "@BknoxDev",
-    image: ""
+    image: brandon
   },
   {
     key: 4,
