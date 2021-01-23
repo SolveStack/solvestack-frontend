@@ -44,7 +44,7 @@ interface SidebarProps {
 const Sidebar: FunctionComponent<SidebarProps> = ({ isMobile, handleDrawerToggle }: SidebarProps) => {
     const classes = useStyles();
     const theme = useTheme();
-    const isDesktop: boolean = useMediaQuery(theme.breakpoints.up('sm'));
+    const isDesktop: boolean = useMediaQuery(theme.breakpoints.up('md'));
 
     const [listLinks, setListLinks] = useState<Array<ListLink>>([]);
 
@@ -56,14 +56,17 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ isMobile, handleDrawerToggle
             id: data.id,
             name: data.name,
             icon:
-                data.name === 'Basic Website' ? (
+                // TODO: make this more sustainable
+                data.name === 'Basic Website' || data.name === 'Backend/Frontend' ? (
                     <CodeIcon />
                 ) : data.name === 'Node 2' ? (
                     <AccountTreeIcon />
                 ) : (
                     <HelpIcon />
                 ),
-            children: data.components?.map((childData) => ({ id: childData.id, name: childData.name })) || [],
+            children:
+                data.components?.map((childData) => ({ id: childData.id, name: childData.name, open: false })) || [],
+            open: false,
         }));
 
         setListLinks(linkData);
@@ -86,7 +89,7 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ isMobile, handleDrawerToggle
                 <div>
                     <div className={classes.toolbar} />
                     <Divider />
-                    <ListLinks listLinks={listLinks} />
+                    <ListLinks listLinks={listLinks} setListLinks={setListLinks} />
                 </div>
             </Drawer>
         </nav>

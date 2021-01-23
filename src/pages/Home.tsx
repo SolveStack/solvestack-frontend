@@ -11,7 +11,10 @@ const Home: FunctionComponent = () => {
     return (
         <Grid container spacing={3}>
             <Grid item md={12}>
-                <Banner title="Welcome to SolveStack" subtitle="The most beautiful place online to learn to code" />
+                <Banner
+                    title="Welcome to the SolveStack Demo Site"
+                    subtitle="The most beautiful place online to learn to code"
+                />
             </Grid>
             <Grid item xs={12} md={8}>
                 <Dendrogram />

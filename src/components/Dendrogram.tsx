@@ -1,5 +1,5 @@
 // React
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent, useEffect, useState, useContext } from 'react';
 // Material-UI Styles
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 // Material-UI Elements
@@ -15,6 +15,8 @@ import { Typography } from '@material-ui/core';
 import api from '../api';
 // Custom Types
 import Stack, { InitialStack } from '../types/stacks';
+// Data Context
+import { CoreDataContext } from 'App';
 // AMCharts Theme
 am4core.useTheme(am4themes_animated);
 
@@ -35,6 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const Dendrogram: FunctionComponent = () => {
     const classes = useStyles();
 
+    const [coreData, setCoreData] = useContext(CoreDataContext);
     const [currentStack, setCurrentStack] = useState<Stack>({ ...InitialStack });
 
     useEffect(() => {
@@ -42,7 +45,7 @@ const Dendrogram: FunctionComponent = () => {
         const chart = am4core.create('chart', am4plugins_forceDirected.ForceDirectedTree);
         // eslint-disable-next-line @typescript-eslint/camelcase
         const networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries());
-        const loadedStack = api.stacks.get('hEowVJjYagxvhWPNw9HbU5');
+        const loadedStack = api.stacks.get(coreData.currentStackPath[0]);
 
         chart.data = [
             {
@@ -51,9 +54,9 @@ const Dendrogram: FunctionComponent = () => {
                     name: component.name,
                     children: component.technologies.map((technology) => ({
                         name: technology.name,
-                        value: Math.floor(Math.random() * 148) + 30,
+                        value: Math.floor(Math.random() * 500) + 30,
                     })),
-                    value: component.technologies.length ? undefined : Math.floor(Math.random() * 148) + 30,
+                    value: component.technologies.length ? undefined : Math.floor(Math.random() * 150) + 30,
                 })),
             },
         ];
@@ -66,6 +69,8 @@ const Dendrogram: FunctionComponent = () => {
 
         networkSeries.nodes.template.label.text = '{name}';
         networkSeries.fontSize = 10;
+        networkSeries.minRadius = 15;
+        networkSeries.maxRadius = 40;
 
         networkSeries.links.template.strokeWidth = 1;
 
@@ -92,7 +97,7 @@ const Dendrogram: FunctionComponent = () => {
         });
 
         setCurrentStack(loadedStack);
-    }, []);
+    }, [coreData.currentStackPath[0]]);
 
     return (
         <Paper elevation={20} className={classes.paper}>

@@ -38,33 +38,22 @@ export const CoreDataContext = createContext<[CoreData, Dispatch<SetStateAction<
 
 const drawerWidth = 240;
 const Home = lazy(() => import('./pages/Home'));
+const Glossary = lazy(() => import('./pages/Glossary'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const SignUp = lazy(() => import('./pages/SignUp'));
 const SignIn = lazy(() => import('./pages/SignIn'));
+const AspiringSD = lazy( () => import('./pages/AspiringSD'));
+const Testimonials = lazy(() => import('./pages/Testimonials'));
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        authentication: {
-            background: 'linear-gradient(18deg, rgba(0,60,113,1) 20%, rgba(0,113,197,1) 72%, rgba(0,174,239,1) 100%)',
-            color: theme.palette.common.white,
-            margin: 'auto',
-            height: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: theme.spacing(2),
-        },
-        intelLogo: {
-            marginRight: theme.spacing(1),
-        },
         main: {
             flexGrow: 1,
             padding: theme.spacing(3),
             display: 'flex',
             marginTop: '4rem',
-            [theme.breakpoints.up('sm')]: {
+            [theme.breakpoints.up('md')]: {
                 width: `calc(100% - ${drawerWidth}px)`,
                 marginLeft: drawerWidth,
                 marginTop: '3.5rem',
@@ -72,10 +61,10 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: '1rem',
         },
         menuButton: {
-            marginRight: theme.spacing(2),
-            [theme.breakpoints.up('sm')]: {
-                display: 'none',
-            },
+            // marginRight: theme.spacing(2),
+            // [theme.breakpoints.up('sm')]: {
+            //     display: 'none',
+            // },
         },
         toolbar: theme.mixins.toolbar as
             | CSSProperties
@@ -124,8 +113,14 @@ const App: FunctionComponent = () => {
                                             <Route exact path="/signin">
                                                 <SignIn />
                                             </Route>
+                                            <Route exact path="/glossary">
+                                                <Glossary />
+                                            </Route>
                                             <Route exact path="/contact">
                                                 <ContactUsForm />
+                                            </Route>
+                                            <Route exact path="/aspiring-software-developers">
+                                                <AspiringSD />
                                             </Route>
                                             <Route exact path="/terms">
                                                 <TermsAndConditions />
@@ -133,11 +128,13 @@ const App: FunctionComponent = () => {
                                             <Route exact path="/privacy">
                                                 <PrivacyPolicy />
                                             </Route>
+                                            <Route exact path="/testimonials">
+                                                <Testimonials />
+                                            </Route>
                                         </Switch>
                                     </Suspense>
                                 </Grid>
                             </Grid>
-
                             <Footer></Footer>
                         </Container>
                     </div>
