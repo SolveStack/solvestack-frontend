@@ -38,10 +38,11 @@ export const CoreDataContext = createContext<[CoreData, Dispatch<SetStateAction<
 
 const drawerWidth = 240;
 const Home = lazy(() => import('./pages/Home'));
+const Login = lazy(() => import('./pages/Login'));
 const Glossary = lazy(() => import('./pages/Glossary'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
-const AspiringSD = lazy( () => import('./pages/AspiringSD')); 
+const AspiringSD = lazy( () => import('./pages/AspiringSD'));
 const Testimonials = lazy(() => import('./pages/Testimonials'));
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -104,6 +105,9 @@ const App: FunctionComponent = () => {
                                         <Switch>
                                             <Route exact path="/">
                                                 <Home />
+                                            </Route>
+                                            <Route exact path="/login">
+                                                <Login />
                                             </Route>
                                             <Route exact path="/glossary">
                                                 <Glossary />
