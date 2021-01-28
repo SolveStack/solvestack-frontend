@@ -45,6 +45,7 @@ const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const Training = lazy(() => import ('./pages/Training'));
 const AspiringSD = lazy( () => import('./pages/AspiringSD')); 
 const Testimonials = lazy(() => import('./pages/Testimonials'));
+const AboutInstructors = lazy(() => import('./pages/AboutInstructors'));
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -127,6 +128,9 @@ const App: FunctionComponent = () => {
                                             </Route>
                                             <Route exact path="/testimonials">
                                                 <Testimonials />
+                                            </Route>
+                                            <Route exact path="/about-instructors">
+                                                <AboutInstructors />
                                             </Route>
                                         </Switch>
                                     </Suspense>

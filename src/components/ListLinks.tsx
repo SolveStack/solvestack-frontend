@@ -230,6 +230,7 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
                     />
                 </ListItem>
             </Link>
+
             <Link to="/training" className={classes.link}>
               <ListItem button title="Training for Tech Companies">
                   <ListItemIcon className={classes.listItemContent}>
@@ -244,20 +245,20 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
                   />
               </ListItem>
             </Link>
-            <ListItem button title="About the Instructors" disabled>
-                <div className={classes.bgText}>Coming soon!</div>
-                <ListItemIcon className={classes.listItemContent}>
-                    <YouTubeIcon />
-                </ListItemIcon>
-                <ListItemText
-                    primary={
-                        <Typography component="div" variant="subtitle1">
-                            About the Instructors
-                        </Typography>
-                    }
-                />
-            </ListItem>
-
+            <Link to="/about-instructors" className={classes.link}>
+                <ListItem button title="About the Instructors">
+                    <ListItemIcon className={classes.listItemContent}>
+                        <YouTubeIcon />
+                    </ListItemIcon>
+                    <ListItemText
+                        primary={
+                            <Typography component="div" variant="subtitle1">
+                                About the Instructors
+                            </Typography>
+                        }
+                    />
+                </ListItem>
+            </Link>
             <Link to="/contact" className={classes.link}>
                 <ListItem button title="Contact Us">
                     <ListItemIcon>
@@ -286,8 +287,7 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
                 />
             </ListItem>
             <Link to="/testimonials" className={classes.link}>
-                <ListItem button title="Testimonials">
-                    
+                <ListItem button title="Testimonials">          
                     <ListItemIcon className={classes.listItemContent}>
                         <SentimentSatisfiedAltIcon />
                     </ListItemIcon>
@@ -300,7 +300,6 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
                     />
                 </ListItem>
             </Link>
-            
         </List>
     );
 };
