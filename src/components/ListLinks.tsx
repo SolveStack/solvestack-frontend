@@ -230,19 +230,20 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
                     />
                 </ListItem>
             </Link>
-            <ListItem button title="Training for Tech Companies" disabled>
-                <div className={classes.bgText}>Coming soon!</div>
-                <ListItemIcon className={classes.listItemContent}>
-                    <BusinessIcon />
-                </ListItemIcon>
-                <ListItemText
-                    primary={
-                        <Typography component="div" variant="subtitle1">
-                            Training for Tech Companies
-                        </Typography>
-                    }
-                />
-            </ListItem>
+            <Link to="/training" className={classes.link}>
+              <ListItem button title="Training for Tech Companies">
+                  <ListItemIcon className={classes.listItemContent}>
+                      <BusinessIcon />
+                  </ListItemIcon>
+                  <ListItemText
+                      primary={
+                          <Typography component="div" variant="subtitle1">
+                              Training for Tech Companies
+                          </Typography>
+                      }
+                  />
+              </ListItem>
+            </Link>
             <ListItem button title="About the Instructors" disabled>
                 <div className={classes.bgText}>Coming soon!</div>
                 <ListItemIcon className={classes.listItemContent}>
