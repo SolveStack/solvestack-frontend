@@ -62,13 +62,13 @@ export const ReviewSquare: FunctionComponent<Review> = (props) => {
   return (
     <React.Fragment>
       <Grid item md={4} className={classes.testimonials}>
-        <Card className={classes.card} >   
+        <Card elevation={20} className={classes.card} square >   
         <CardHeader
           title={props.title}
           subheader={props.date}
         />
           <CardContent>
-            <Typography>
+            <Typography variant="body1" >
               {props.text}
             </Typography>
           </CardContent>
