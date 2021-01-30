@@ -1,12 +1,17 @@
 // React
 import React, { FunctionComponent, useEffect, useState } from 'react';
+// React Router
+import { Link } from 'react-router-dom';
 // Material-UI Styles
 import { makeStyles, Theme, createStyles, useTheme } from '@material-ui/core/styles';
 import { CreateCSSProperties, CSSProperties } from '@material-ui/core/styles/withStyles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 // Material-UI Components
+import Avatar from '@material-ui/core/Avatar';
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 // Material-UI Icons
 import CodeIcon from '@material-ui/icons/Code';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
@@ -90,7 +95,13 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ isMobile, handleDrawerToggle
                 }}
             >
                 <div>
-                    <div className={classes.toolbar} />
+                    <List dense component="nav" aria-labelledby="list-header">
+                        <ListItem>
+                            <Link to="/login">
+                                <Avatar alt="Username" src=""></Avatar>
+                            </Link>
+                        </ListItem>
+                    </List>
                     <Divider />
                     <ListLinks listLinks={listLinks} setListLinks={setListLinks} />
                 </div>
