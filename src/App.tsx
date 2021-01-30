@@ -43,8 +43,11 @@ const Login = lazy(() => import('./pages/Login'));
 const Glossary = lazy(() => import('./pages/Glossary'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
-const AspiringSD = lazy( () => import('./pages/AspiringSD'));
+
+const Training = lazy(() => import('./pages/Training'));
+const AspiringSD = lazy(() => import('./pages/AspiringSD'));
 const Testimonials = lazy(() => import('./pages/Testimonials'));
+const AboutInstructors = lazy(() => import('./pages/AboutInstructors'));
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -128,14 +131,19 @@ const App: FunctionComponent = () => {
                                             <Route exact path="/privacy">
                                                 <PrivacyPolicy />
                                             </Route>
+                                            <Route exact path="/training">
+                                                <Training />
+                                            </Route>
                                             <Route exact path="/testimonials">
                                                 <Testimonials />
+                                            </Route>
+                                            <Route exact path="/about-instructors">
+                                                <AboutInstructors />
                                             </Route>
                                         </Switch>
                                     </Suspense>
                                 </Grid>
                             </Grid>
-
                             <Footer></Footer>
                         </Container>
                     </div>
