@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 // Material-UI Styles
 import { makeStyles } from '@material-ui/core/styles';
 //instructor photos
+import alex from '../assets/alex.jpg';
 import ana from '../assets/ana.png';
 import alec from '../assets/alec.jpg';
 import brandon from '../assets/brandon.jpg';
@@ -102,11 +103,37 @@ export const instructors: Array<Instructor> = [
     website: "https://chrissyalbert.github.io/",
     twitter: "",
     image: chrissy
+  },
+  {
+    key: 6,
+    title: "Alex Maskovyak",
+    specialty: "Full Stack, DevOps",
+    text: `Software design has always been my passion. "Computers" were my destiny from an early age.
+
+    Come time, come age, come solar flare: nothing will corrupt the memory of my first programming book. That tome wasn't only a present from my grandparents—it was a future. Its pages back then held me absolutely spellbound. I spent hours laboriously reciting line after line of its cryptic script on my keyboard; certain that when the ritual was complete that the incantation would conjure images to life.
+    
+    Those 8-bit graphics wouldn't impress an eight year-old today, but they completely enchanted the apprentice coder that I was then. The sense of wonder from those days remains with me. It’s what’s held me captivated for the last 15 years of professional development experience. Bringing that sort of enchantment to the lives of others is what inspires me today. The magic of programming is that the tools of the craft are empowering
+    
+    Welcome to SolveStack. I hope it casts the same spell on you!
+    `,
+    linkedIn: "https://www.linkedin.com/in/alexmaskovyak/",
+    website: "",
+    twitter: "https://twitter.com/AlexMaskovyak",
+    image: alex
   }
 ];
 
 export const InstructorSquare: FunctionComponent<Instructor> = (props) => {
   const classes = useStyles();
+  
+  /* respect line breaks and construct elements */
+  var paragraphs = props.text.split("\n");
+  var paragraphElements = paragraphs.map(
+    function(paragraph) {
+      return <Typography>{paragraph}<br/></Typography>
+    }
+  )
+
   return (
     <React.Fragment>
       <Grid item md={6} className={classes.instructors}>
@@ -126,8 +153,8 @@ export const InstructorSquare: FunctionComponent<Instructor> = (props) => {
             />
             }
             <br />
+            {paragraphElements}
             <Typography>
-              {props.text}
               <p>Contact details:</p>
               <a href={props.linkedIn} target="_blank">{props.linkedIn ? 'LinkedIn' : null}</a>
               <br />
