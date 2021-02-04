@@ -85,27 +85,6 @@ export const instructors: Array<Instructor> = [
   },
   {
     key: 4,
-    title: "Mike Nolte",
-    specialty: "",
-    text: `Good enough, smart enough, and otherwise reprehensible, Mike likes: building things and watching them work, cultural references, writing in the third person, and lists with 3 items.
-    Like many professional Infrastructure dorks, I started using computers to play video games and learn how to be much cooler online. Through an internship, I got a job doing absolutely everything for nonprofits and other companies too small to have dedicated IT staff. I started programming to build Linux phone systems and firewalls on donated hardware. When it became clear that I couldn't manage them all and also sleep, I got into  automation, and I've spent most of the past 15 years trying to automate myself out of a series of jobs.`,
-    linkedIn: "",
-    website: "",
-    twitter: "",
-    image: ""
-  },
-  {
-    key: 5,
-    title: "Chrissy Albert",
-    specialty: "Frontend",
-    text: "Hello, I'm Chrissy. I'm a teacher/mom/self-taught coder. I started my career in elementary education and loved the experience of empowering others with the gift of knowledge. I have always been interested in technology and programming, so after I had children I began to learn about web development. Soon I was teaching myself HTML and CSS, and JavaScript not long after that. As I built more websites, I gained more experience and confidence in my skills. I'm currently working as a software engineer, and I am living proof that you can make a mid-life career change into programming.",
-    linkedIn: "https://www.linkedin.com/in/chrissyalbert/",
-    website: "https://chrissyalbert.github.io/",
-    twitter: "",
-    image: chrissy
-  },
-  {
-    key: 6,
     title: "Alex Maskovyak",
     specialty: "Full Stack, DevOps",
     text: `Software design has always been my passion. "Computers" were my destiny from an early age.
@@ -120,7 +99,28 @@ export const instructors: Array<Instructor> = [
     website: "",
     twitter: "https://twitter.com/AlexMaskovyak",
     image: alex
-  }
+  },
+  {
+    key: 5,
+    title: "Mike Nolte",
+    specialty: "",
+    text: `Good enough, smart enough, and otherwise reprehensible, Mike likes: building things and watching them work, cultural references, writing in the third person, and lists with 3 items.
+    Like many professional Infrastructure dorks, I started using computers to play video games and learn how to be much cooler online. Through an internship, I got a job doing absolutely everything for nonprofits and other companies too small to have dedicated IT staff. I started programming to build Linux phone systems and firewalls on donated hardware. When it became clear that I couldn't manage them all and also sleep, I got into  automation, and I've spent most of the past 15 years trying to automate myself out of a series of jobs.`,
+    linkedIn: "",
+    website: "",
+    twitter: "",
+    image: ""
+  },
+  {
+    key: 6,
+    title: "Chrissy Albert",
+    specialty: "Frontend",
+    text: "Hello, I'm Chrissy. I'm a teacher/mom/self-taught coder. I started my career in elementary education and loved the experience of empowering others with the gift of knowledge. I have always been interested in technology and programming, so after I had children I began to learn about web development. Soon I was teaching myself HTML and CSS, and JavaScript not long after that. As I built more websites, I gained more experience and confidence in my skills. I'm currently working as a software engineer, and I am living proof that you can make a mid-life career change into programming.",
+    linkedIn: "https://www.linkedin.com/in/chrissyalbert/",
+    website: "https://chrissyalbert.github.io/",
+    twitter: "",
+    image: chrissy
+  },
 ];
 
 export const InstructorSquare: FunctionComponent<Instructor> = (props) => {
