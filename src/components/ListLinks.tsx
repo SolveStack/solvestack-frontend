@@ -10,8 +10,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
 import Collapse from '@material-ui/core/Collapse';
 // Material-UI Icons
 import BarChartIcon from '@material-ui/icons/BarChart';
@@ -287,7 +285,7 @@ const ListLinks: FunctionComponent<ListLinksProps> = ({
                 />
             </ListItem>
             <Link to="/testimonials" className={classes.link}>
-                <ListItem button title="Testimonials">          
+                <ListItem button title="Testimonials">
                     <ListItemIcon className={classes.listItemContent}>
                         <SentimentSatisfiedAltIcon />
                     </ListItemIcon>
