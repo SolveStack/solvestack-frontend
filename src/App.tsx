@@ -36,10 +36,13 @@ export const CoreDataContext = createContext<[CoreData, Dispatch<SetStateAction<
     (): CoreData => ({ ...initialCoreData }),
 ]);
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 const drawerWidth = 240;
 const Home = lazy(() => import('./pages/Home'));
 const LoggedInHomepage = lazy(() => import('./pages/LoggedInHomepage'));
-const Login = lazy(() => import('./pages/Login'));
+// TODO: Use our own Login page
+// const Login = lazy(() => import('./pages/Login'));
 const Glossary = lazy(() => import('./pages/Glossary'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
@@ -110,9 +113,13 @@ const App: FunctionComponent = () => {
                                             <Route exact path="/">
                                                 <Home />
                                             </Route>
-                                            <Route exact path="/login">
-                                                <Login />
-                                            </Route>
+                                            <Route
+                                                path="/login"
+                                                component={() => {
+                                                    window.location.href = `https://auth-dev-solvestack.auth.us-west-2.amazoncognito.com/login?client_id=2ve3af817uue2fksma24cha3pk&response_type=code&scope=phone+email+openid+profile&redirect_uri=${baseUrl}/logged-in-homepage/`;
+                                                    return null;
+                                                }}
+                                            />
                                             <Route exact path="/logged-in-homepage">
                                                 <LoggedInHomepage />
                                             </Route>
