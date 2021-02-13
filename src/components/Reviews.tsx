@@ -69,7 +69,7 @@ export const ReviewSquare: FunctionComponent<Review> = (props) => {
   var paragraphs = props.text.split("\n");
   var paragraphElements = paragraphs.map(
     function(paragraph) {
-      return <Typography>{paragraph}<br/></Typography>
+      return <Typography variant="body1">{paragraph}<br/></Typography>
     }
   )
   return (
@@ -81,9 +81,7 @@ export const ReviewSquare: FunctionComponent<Review> = (props) => {
           subheader={props.date}
         />
           <CardContent>
-            <Typography variant="body1" >
-              {paragraphElements}
-            </Typography>
+            {paragraphElements}
           </CardContent>
         </Card>
       </Grid> 
