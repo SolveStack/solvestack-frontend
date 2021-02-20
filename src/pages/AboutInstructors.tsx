@@ -4,7 +4,7 @@ import React, { FunctionComponent } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 // Material UI Components
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import { instructors, InstructorSquare } from '../components/Instructors';
 
 const useStyles = makeStyles({
@@ -19,8 +19,8 @@ const AboutInstructors: FunctionComponent = () => {
         <Grid container spacing={3} className={classes.aboutInstructors} >
             <Grid item xs={12}  >
                 <header>
-                <Typography>
-                    <h1>About the Instructors</h1>
+                <Typography component="h1" variant="h1">
+                    About the Instructors
                 </Typography>
                 </header>
           </Grid>

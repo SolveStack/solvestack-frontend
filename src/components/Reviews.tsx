@@ -35,13 +35,19 @@ export const reviews: Array<Review> = [
     key: 1,
     title: "Gina Aorahim",
     date: "October 30, 2020",
-    text: "The most amazing environment and knowledgeable people. Ana is experienced, fun, and dedicated to teaching. I’ve learned differences with dockers and vm’s, frameworks, libraries, languages, and the engineering mindset to understand code. I think This safe and energetic place is recommended for all levels of programmers." +
-    " Highly recommend 10/10" +
-    " Staff is amazing 10/10" + 
-    " Practice social distancing 10/10" + 
-    " Knowledge 10/10" +
-    " Fun 10/10" +
-    " Learn something new 10/10"
+    text: `The most amazing environment and knowledgeable people. Ana is experienced, fun, and dedicated to teaching. I’ve learned differences with dockers and vm’s, frameworks, libraries, languages, and the engineering mindset to understand code. I think this safe and energetic place is recommended for all levels of programmers. 
+    
+    Highly recommend 10/10
+    
+    Staff is amazing 10/10 
+    
+    Practice social distancing 10/10
+    
+    Knowledge 10/10
+    
+    Fun 10/10
+    
+    Learn something new 10/10`
   },
   {
     key: 2,
@@ -59,6 +65,13 @@ export const reviews: Array<Review> = [
 
 export const ReviewSquare: FunctionComponent<Review> = (props) => {
   const classes = useStyles();
+  /* respect line breaks and construct elements */
+  var paragraphs = props.text.split("\n");
+  var paragraphElements = paragraphs.map(
+    function(paragraph) {
+      return <Typography variant="body1">{paragraph}<br/></Typography>
+    }
+  )
   return (
     <React.Fragment>
       <Grid item md={4} className={classes.testimonials}>
@@ -68,9 +81,7 @@ export const ReviewSquare: FunctionComponent<Review> = (props) => {
           subheader={props.date}
         />
           <CardContent>
-            <Typography variant="body1" >
-              {props.text}
-            </Typography>
+            {paragraphElements}
           </CardContent>
         </Card>
       </Grid> 
