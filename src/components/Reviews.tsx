@@ -29,7 +29,7 @@ export const reviews: Array<Review> = [
     key: 0,
     title: "Chrissy Albert",
     date: "October 30, 2020",
-    text: "This is a really supportive group! I'm meeting wonderful people and learning so much from Ana and Brandon. There are opportunities to lead, and I've been able to step up and share my knowledge is some small group sessions. The best part is that people are super welcoming and are willing to meet you where you are at with your current knowledge and skills."
+    text: "This is a really supportive group! I'm meeting wonderful people and learning so much from Ana and Brandon. There are opportunities to lead, and I've been able to step up and share my knowledge is some small group sessions. The best part is that people are super welcoming and are willing to meet you where you are at with your current knowledge and skills. Follow up to this review: I've had the pleasure to step up as a mentee by working for Peerlogic for the past year. In that time, I started as a part time intern and worked my way up to a junior developer role. I've learned both Frontend and Backend skills. As leaders and mentors, both Ana Tomboulian and Alex have empowered me to take on challenging projects with Vue.js, Nuxt, Electron, and Django REST frameworks. The skills and experience I've gained through the mentorship program has propelled my career to the next level."
   },
   {
     key: 1,
